@@ -168,8 +168,8 @@ else{
 console.table(gameBoard.nmines_array);
 console.log(gameBoard.nmines);
 
-var wilhelm_scream;
-wilhelm_scream = new sound("wilhelm.mp3");
+//var wilhelm_scream;
+//wilhelm_scream = new sound("wilhelm.mp3");
 
 /**  
  * @classdesc The game UI is handled by the UI class, how the tiles are revealed and handled.
@@ -343,7 +343,7 @@ function clickHandler(e){
 			ui.clickCheck(x,y);
 		}
 		if(ui.n_array[x][y]==9){
-			wilhelm_scream.play();
+			//wilhelm_scream.play();
 			alert("Game Over!");
 		}
 	}
