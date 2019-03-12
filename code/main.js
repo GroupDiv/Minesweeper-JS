@@ -31,21 +31,20 @@ function main()
 //var wilhelm_scream;
 //wilhelm_scream = new sound("wilhelm.mp3");
 
-function initUI()
-{
-	/**  
-		* Making an object of UI class named ui.
-	*/
-	var ui = new UI();
-	/**  
-		* Making an object of Graphics class named gfx.
-	*/
-	var gfx = new Graphics();
-	document.getElementById("flags").innerHTML = "Flags: " + gfx.nflags;
 
-	gfx.canvas.addEventListener('click',clickHandler);
-	gfx.canvas.addEventListener('contextmenu',clickHandler);
-}
+/**  
+	* Making an object of UI class named ui.
+*/
+let ui = new UI();
+/**  
+	* Making an object of Graphics class named gfx.
+*/
+let gfx = new Graphics();
+document.getElementById("flags").innerHTML = "Flags: " + gfx.nflags;
+
+gfx.canvas.addEventListener('click',clickHandler);
+gfx.canvas.addEventListener('contextmenu',clickHandler);
+
 
 /**  
 	 * This is the only global function, this is a clickHandler, this handles the clicks on the canvas and detects which component was clicked and updates it.

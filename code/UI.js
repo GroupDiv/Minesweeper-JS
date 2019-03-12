@@ -11,6 +11,7 @@ class UI{
 		this.revealed = [];
 		this.n_array = [];
 		this.init();
+		alert("UI constructed");
 	}
 	/**  
  	* Initializing the UI n_array with values from the Board class nmines_array and revealed state of a tile to false.
