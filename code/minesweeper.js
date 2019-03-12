@@ -1,5 +1,6 @@
 //minesweeper.js
-define(function (require){
+function main()
+{
 	let h = prompt("Enter height");
 	let w = prompt("Enter width");
 	let nm = prompt("Enter number of mines");
@@ -26,23 +27,25 @@ define(function (require){
 
 	console.table(gameBoard.nmines_array);
 	console.log(gameBoard.nmines);
-});
+}
 //var wilhelm_scream;
 //wilhelm_scream = new sound("wilhelm.mp3");
 
+function initUI()
+{
+	/**  
+		* Making an object of UI class named ui.
+	*/
+	var ui = new UI();
+	/**  
+		* Making an object of Graphics class named gfx.
+	*/
+	var gfx = new Graphics();
+	document.getElementById("flags").innerHTML = "Flags: " + gfx.nflags;
 
-/**  
- 	* Making an object of UI class named ui.
-*/
-let ui = new UI();
-/**  
- 	* Making an object of Graphics class named gfx.
-*/
-let gfx = new Graphics();
-document.getElementById("flags").innerHTML = "Flags: " + gfx.nflags;
-
-gfx.canvas.addEventListener('click',clickHandler);
-gfx.canvas.addEventListener('contextmenu',clickHandler);
+	gfx.canvas.addEventListener('click',clickHandler);
+	gfx.canvas.addEventListener('contextmenu',clickHandler);
+}
 
 /**  
 	 * This is the only global function, this is a clickHandler, this handles the clicks on the canvas and detects which component was clicked and updates it.
@@ -64,19 +67,12 @@ function clickHandler(e){
 	}
 	if(!ui.revealed[x][y])
 	if(!rightClick){
-		require(['scripts/UI'], function(ui){
-			ui.revealed[x][y] = true;
-		});
+		ui.revealed[x][y] = true;
 
 		gfx.context.strokeStyle = 'rgba(0,0,255,0.6)';
 		gfx.context.shadowColor = 'rgba(0,0,255,0.6)';
 
-		let isAdjacent = true;
-		require(['scripts/UI'], function(ui){
-			isAdjacent = (ui.n_array[x][y]>0)&&(ui.n_array[x][y]<9);
-		});
-
-		if(isAdjacent){
+		if((ui.n_array[x][y]>0)&&(ui.n_array[x][y]<9)){
 			tc =  "" + ui.n_array[x][y];
 			gfx.component(x*50,y*50,tc);
 			ui.n_array[x][y] = ui.n_array[x][y]+10;
@@ -115,6 +111,7 @@ function clickHandler(e){
 	}
 
 }
+
 function RestartGame(){
 	history.go(0);
 }
