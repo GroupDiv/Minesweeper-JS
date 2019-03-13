@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            function countDown(seconds, elem) {
+                let element = document.getElementById(elem);
+                element.innerHTML = "Time remaining: " + seconds + " seconds";
+            
+                if (seconds < 1) {
+                    clearTimeout(clock);
+                    element.innerHTML = '<h2>GAME OVER</h2>';
+                }
+                    
+                seconds--;
+                var clock = setTimeout('countDown('+seconds+',"'+elem+'")',1000);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Countdown Clock</h1>
+        <div id="timer"></div>
+        <script type="text/javascript">countDown(10, "timer");</script>
+    </body>
+</html>
+
+
+    
