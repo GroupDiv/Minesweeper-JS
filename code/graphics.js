@@ -6,7 +6,7 @@ class Graphics{
 	/**  
 	 * The default constructor takes no parameters and makes a Canvas (A game area) on the HTML to be populated.
 	*/
-	constructor(){
+	constructor(gameBoard){
 		this.comp = [];
 		this.canvas = document.createElement("canvas");
 		this.canvas.width = gameBoard.width*50;
@@ -15,7 +15,7 @@ class Graphics{
 		this.context = this.canvas.getContext("2d");
 		document.body.insertBefore(this.canvas, document.body.childNodes[0]);
 		this.nflags = gameBoard.nmines;
-		this.draw();		
+		this.draw(gameBoard);		
 		}
 	/**  
 	 * Makes the specific components in the Canvas, i.e. the tiles for the game.
@@ -34,7 +34,7 @@ class Graphics{
 	/**  
  	* This method makes all the components at the time when the game starts i.e. the game is initialized.
 	*/
-	draw(){
+	draw(gameBoard){
 		this.context.strokeStyle = 'rgba(0,0,0,0.2)';
 		this.context.shadowColor = 'rgba(0,0,0,0.2)';
 		for(let i =0; i<gameBoard.width;i++){

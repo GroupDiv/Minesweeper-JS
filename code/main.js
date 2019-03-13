@@ -1,7 +1,7 @@
 //minesweeper.js
-let gameBoard;
 function main()
 {
+	let gameBoard;
 	let h = prompt("Enter height");
 	let w = prompt("Enter width");
 	let nm = prompt("Enter number of mines");
@@ -27,7 +27,7 @@ function main()
 
 	console.table(gameBoard.nmines_array);
 	console.log(gameBoard.nmines);
-}
+
 //var wilhelm_scream;
 //wilhelm_scream = new sound("wilhelm.mp3");
 
@@ -39,7 +39,7 @@ let ui = new UI(gameBoard);
 /**  
 	* Making an object of Graphics class named gfx.
 */
-let gfx = new Graphics();
+let gfx = new Graphics(gameBoard);
 document.getElementById("flags").innerHTML = "Flags: " + gfx.nflags;
 
 gfx.canvas.addEventListener('click',clickHandler);
@@ -113,4 +113,5 @@ function clickHandler(e){
 
 function RestartGame(){
 	history.go(0);
+}
 }
