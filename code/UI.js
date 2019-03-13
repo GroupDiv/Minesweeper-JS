@@ -12,7 +12,6 @@ class UI{
 		this.n_array = [];
 		console.log(gameBoard.board);
 		this.init(gameBoard);
-		alert("UI constructed");
 	}
 	/**  
  	* Initializing the UI n_array with values from the Board class nmines_array and revealed state of a tile to false.
