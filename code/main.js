@@ -1,10 +1,10 @@
 //minesweeper.js
+let gameBoard;
 function main()
 {
 	let h = prompt("Enter height");
 	let w = prompt("Enter width");
 	let nm = prompt("Enter number of mines");
-	let gameBoard;
 	if(h>1 && w>1){
 	if(nm<h*w && nm>0){
 	/**  
@@ -35,7 +35,7 @@ function main()
 /**  
 	* Making an object of UI class named ui.
 */
-let ui = new UI();
+let ui = new UI(gameBoard);
 /**  
 	* Making an object of Graphics class named gfx.
 */
@@ -77,7 +77,7 @@ function clickHandler(e){
 			ui.n_array[x][y] = ui.n_array[x][y]+10;
 		}
 		if(ui.n_array[x][y]==0){
-			ui.clickCheck(x,y);
+			ui.clickCheck(x,y, gameBoard, gfx);
 		}
 		if(ui.n_array[x][y]==9){
 			//wilhelm_scream.play();
@@ -105,7 +105,7 @@ function clickHandler(e){
 		}
 		document.getElementById("flags").innerHTML = "Flags: " + gfx.nflags;
 	}
-	if (ui.checkComplete()){
+	if (ui.checkComplete(gameBoard)){
 		alert("You won!");
 	}
 

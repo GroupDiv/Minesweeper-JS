@@ -6,17 +6,18 @@ class UI{
 	/**  
  	* The constructor for the UI class takes no parameters, but initializes arrays that are needed for the run.
 	*/
-	constructor(){
+	constructor(gameBoard){
 
 		this.revealed = [];
 		this.n_array = [];
-		this.init();
+		console.log(gameBoard.board);
+		this.init(gameBoard);
 		alert("UI constructed");
 	}
 	/**  
  	* Initializing the UI n_array with values from the Board class nmines_array and revealed state of a tile to false.
 	*/
-	init(){
+	init(gameBoard){
 		for(let i=0;i<gameBoard.width;i++){
 			this.revealed [i] = [];
 			this.n_array [i] = [];
@@ -31,7 +32,7 @@ class UI{
 	* @param {Number} x - The x coordinate of the tile clicked.
 	* @param {Number} y - The y coordinate of the tile clicked.
 	 */
-	clickCheck(x,y){
+	clickCheck(x,y, gameBoard, gfx){
 		let tc = "";
 		this.revealed[x][y] = true;
 		gfx.context.strokeStyle = 'rgba(0,0,255,0.6)';
@@ -59,7 +60,7 @@ class UI{
 	/**  
  	* Checks if the baord is completed with all the flags correctly placed, if not user cant win.
 	*/
-	checkComplete(){
+	checkComplete(gameBoard){
 		let over = false;
 		let n_mine_flag = 0;
 		for (let i = 0; i < gameBoard.width; i++){
