@@ -82,6 +82,7 @@ function clickHandler(e){
 		if(ui.n_array[x][y]==9){
 			//wilhelm_scream.play();
 			alert("Game Over!");
+			RestartGame();
 		}
 	}
 	else{
@@ -107,11 +108,12 @@ function clickHandler(e){
 	}
 	if (ui.checkComplete(gameBoard)){
 		alert("You won!");
+		RestartGame();
 	}
 
+}
 }
 
 function RestartGame(){
 	history.go(0);
-}
 }
