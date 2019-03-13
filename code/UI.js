@@ -45,7 +45,7 @@ class UI{
 				for (let j = y-1; j <= y+1; j++){
 					if (i>=0&&i<gameBoard.width&&j>=0&&j<gameBoard.height){	
 						//if(!(i==0 && j ==0))			
-							this.clickCheck(i,j);
+							this.clickCheck(i,j, gameBoard, gfx);
 					}
 				}
 			}
