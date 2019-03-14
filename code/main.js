@@ -2,32 +2,43 @@
 function main()
 {
 	let gameBoard;
-	let h = prompt("Enter height");
-	let w = prompt("Enter width");
-	let nm = prompt("Enter number of mines");
-	if(h>1 && w>1){
-	if(nm<h*w && nm>0){
-	/**  
-	 * Initializing the gameBoard the object of Board class.
-	*/
-		gameBoard = new Board("",h,w,nm);
-	}
-	else{
-		if(nm>=h*w)
-		alert("Too many mines. Ouch!");
-		else
-		alert("Number of mines cant be zero!");
-		RestartGame();
-	}
-	}
-	else{
-		alert("Height or Width cant be less than 2");
-		RestartGame();
+	let gameMode = prompt("Would you like to play Devil Mode? The board will be a size of 6x6 with 6 mines, and you only have 66 seconds to find them all! Find the special tile to add an additional 6 seconds to the clock! (yes/no)");
+	switch(gameMode) {
+		case "yes":
+			gameBoard = new Board("", 6, 6, 6);
+			break;
+		case "no":
+			let h = prompt("Enter height");
+			let w = prompt("Enter width");
+			let nm = prompt("Enter number of mines");
+			if(h>1 && w>1){
+			if(nm<h*w && nm>0){
+			/**  
+			 * Initializing the gameBoard the object of Board class.
+			*/
+				gameBoard = new Board("",h,w,nm);
+			}
+			else{
+				if(nm>=h*w)
+				alert("Too many mines. Ouch!");
+				else
+				alert("Number of mines cant be zero!");
+				RestartGame();
+			}
+			}
+			else{
+				alert("Height or Width cant be less than 2");
+				RestartGame();
+			}
+	
+			break;
+		default:
+			break;
 	}
 
 	console.table(gameBoard.nmines_array);
 	console.log(gameBoard.nmines);
-
+	
 	//var wilhelm_scream;
 	//wilhelm_scream = new sound("wilhelm.mp3");
 
