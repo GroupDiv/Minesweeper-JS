@@ -6,6 +6,7 @@ function main()
 	switch(gameMode) {
 		case "yes":
 			gameBoard = new Board("", 6, 6, 6);
+			countdownTimer(66, "timer");
 			break;
 		case "no":
 			let h = prompt("Enter height");
@@ -38,7 +39,7 @@ function main()
 
 	console.table(gameBoard.nmines_array);
 	console.log(gameBoard.nmines);
-	
+
 	//var wilhelm_scream;
 	//wilhelm_scream = new sound("wilhelm.mp3");
 
@@ -121,7 +122,19 @@ function main()
 			alert("You won!");
 			RestartGame();
 		}
+	}
 
+	function countdownTimer(seconds, elem) {
+		let element = document.getElementById(elem);
+		element.innerHTML = "Time Remaining: " + seconds + " seconds";
+
+		if (seconds < 1) {
+			clearTimeout(clock);
+			element.innerHTML = "<h2>GAME OVER</h2>";
+		}
+
+		seconds--;
+		let clock = setTimeout('countdownTimer('+seconds+', "' +elem+ '")', 1000);
 	}
 }
 
