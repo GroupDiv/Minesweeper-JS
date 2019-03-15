@@ -11,7 +11,8 @@ class Board{
 	/**  
  	* The default constructor of this lass initializes arrays, i.e. the game board needed.
 	*/
-	constructor (level,h,w,m){		
+	constructor (level,h,w,m){
+		this.permaMines = m;		
 		this.board = [];			// Initiallizing the board array;
 		this.nmines_array = [];		// Initiallizing the number of mines surrounding array.
 		// Switches between the size of boards;

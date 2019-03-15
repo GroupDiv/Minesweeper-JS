@@ -12,6 +12,7 @@ class UI{
 		this.n_array = [];
 		console.log(gameBoard.board);
 		this.init(gameBoard);
+		this.num_revealed = 0;
 	}
 	/**  
  	* Initializing the UI n_array with values from the Board class nmines_array and revealed state of a tile to false.
@@ -33,7 +34,10 @@ class UI{
 	 */
 	clickCheck(x,y, gameBoard, gfx){
 		let tc = "";
-		this.revealed[x][y] = true;
+		if (this.revealed[x][y] == false) {
+			this.num_revealed ++;
+			this.revealed[x][y] = true;
+		}
 		gfx.context.strokeStyle = 'rgba(0,0,255,0.6)';
 		gfx.context.shadowColor = 'rgba(0,0,255,0.6)';
 		if(this.n_array[x][y]==0){
@@ -62,6 +66,12 @@ class UI{
 	checkComplete(gameBoard){
 		let over = false;
 		let n_mine_flag = 0;
+		let gameBoardSize = gameBoard.height * gameBoard.width;
+		console.log(this.num_revealed + " have been revealed, " + gameBoard.permaMines + " mines are on board");
+		console.log("Added together they need to make " + gameBoardSize);
+		if (this.num_revealed + gameBoard.permaMines < gameBoardSize) {
+			return false;
+		}
 		for (let i = 0; i < gameBoard.width; i++){
 			for (let j = 0; j < gameBoard.height; j++){
 				if (this.n_array[i][j] == 29){

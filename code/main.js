@@ -103,6 +103,7 @@ function clickHandler(e){
 		if(!ui.revealed[x][y])
 		if(!rightClick){
 			ui.revealed[x][y] = true;
+			ui.num_revealed ++;
 
 			gfx.context.strokeStyle = 'rgba(0,0,255,0.6)';
 			gfx.context.shadowColor = 'rgba(0,0,255,0.6)';
