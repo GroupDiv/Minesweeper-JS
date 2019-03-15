@@ -28,8 +28,8 @@ function main()
 	console.table(gameBoard.nmines_array);
 	console.log(gameBoard.nmines);
 
-	//var wilhelm_scream;
-	//wilhelm_scream = new sound("wilhelm.mp3");
+	var wilhelm_scream;
+	wilhelm_scream = new sound("wilhelm.mp3");
 
 
 	/**  
@@ -80,7 +80,7 @@ function main()
 				ui.clickCheck(x,y, gameBoard, gfx);
 			}
 			if(ui.n_array[x][y]==9){
-				//wilhelm_scream.play();
+				wilhelm_scream.play();
 				alert("Game Over!");
 				RestartGame();
 			}
@@ -117,3 +117,21 @@ function main()
 function RestartGame(){
 	history.go(0);
 }
+
+class sound {
+	constructor(src) {
+		this.sound = document.createElement("audio");
+		this.sound.src = src;
+		this.sound.setAttribute("preload", "auto");
+		this.sound.setAttribute("controls", "none");
+		this.sound.style.display = "none";
+		document.body.appendChild(this.sound);
+		this.play = function () {
+			this.sound.play();
+		};
+		this.stop = function () {
+			this.sound.pause();
+		};
+	}
+}
+
