@@ -1,6 +1,10 @@
 //minesweeper.js
+
+
+
 function main()
 {
+
 	let gameBoard;
 	let h = prompt("Enter height");
 	let w = prompt("Enter width");
@@ -44,6 +48,38 @@ document.getElementById("flags").innerHTML = "Flags: " + gfx.nflags;
 
 gfx.canvas.addEventListener('click',clickHandler);
 gfx.canvas.addEventListener('contextmenu',clickHandler);
+
+
+// This isn't ideal, but cheat mode cannot be in its own file because it must interact
+// with objects in main from the document level.  As such, I am putting it here, after
+// everything has been instantiated and rendered.
+
+let cheatToggle = false;
+
+let cheatCanvas = document.getElementById("cheatCanvas");
+cheatCanvas.height = 50 * h;
+cheatCanvas.width = 50 * w;
+let cheatx = cheatCanvas.getContext("2d")
+cheatCanvas.style.display = "none";
+
+// Call to a function in cheat.js that will generate the cheating board, which will be shown/hidden upon toggle
+cheatGen(gameBoard, cheatx);
+
+// Definition for cheat button that calls functions to enable/disable cheat mdoe
+document.getElementById("cheatButton").addEventListener("click", function(){
+	if (cheatToggle) {
+		cheatToggle = false;
+		console.log("Cheat Mode disabled");
+		cheatCanvas.style.display = "none";
+		gfx.canvas.style.display = "initial";
+	}
+	else {
+		cheatToggle = true;
+		console.log("Cheat Mode enabled");
+		cheatCanvas.style.display = "initial";
+		gfx.canvas.style.display = "none";
+	}
+})
 
 
 /**  
