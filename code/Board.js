@@ -12,44 +12,46 @@ class Board{
  	* The default constructor of this lass initializes arrays, i.e. the game board needed.
 	*/
 	constructor (level,h,w,m){
-		this.permaMines = m;		
+		this.permaMines = parseInt(m);  // This is a constant value that never changes, the other group's implementation uses a variable 
+										// called "nmines" that changes as the board is initialized.  We need an unchanging variable to check
+										// against when checking if the game is won -TB		
 		this.board = [];			// Initiallizing the board array;
 		this.nmines_array = [];		// Initiallizing the number of mines surrounding array.
-		// Switches between the size of boards;
-		switch(level){
-			case "b":
-					this.height(3);
-					this.width(3);
-					this.mines(4);
-					this.initboard();
-					this.initMines(this.nmines);
-					this.initNmines();
-					break;
-			case "e":
-					this.height(9);
-					this.width(9);
-					this.mines(10);
-					this.initboard();
-					this.initMines(this.nmines);
-					this.initNmines();
-					break;
-			case "":
+		// Switches between the size of boards;   <-- This is unused in our implementation -TB
+		// switch(level){
+		// 	case "b":
+		// 			this.height(3);
+		// 			this.width(3);
+		// 			this.mines(4);
+		// 			this.initboard();
+		// 			this.initMines(this.nmines);
+		// 			this.initNmines();
+		// 			break;
+		// 	case "e":
+		// 			this.height(9);
+		// 			this.width(9);
+		// 			this.mines(10);
+		// 			this.initboard();
+		// 			this.initMines(this.nmines);
+		// 			this.initNmines();
+		// 			break;
+		// 	case "":
 					this.height(h);
 					this.width(w);
 					this.mines(m);
 					this.initboard();
 					this.initMines(this.nmines);
 					this.initNmines();
-					break;
-			default:
-					this.height(5);
-					this.width(5);
-					this.mines(6);
-					this.initboard();
-					this.initMines(this.nmines);
-					this.initNmines();
-					break;
-		}
+		// 			break;
+		// 	default:
+		// 			this.height(5);
+		// 			this.width(5);
+		// 			this.mines(6);
+		// 			this.initboard();
+		// 			this.initMines(this.nmines);
+		// 			this.initNmines();
+		// 			break;
+		// }
 	}
 	/**  
 	 * Sets the number of mines.

@@ -67,10 +67,8 @@ class UI{
 		let over = false;
 		let n_mine_flag = 0;
 		let gameBoardSize = gameBoard.height * gameBoard.width;
-		console.log(this.num_revealed + " have been revealed, " + gameBoard.permaMines + " mines are on board");
-		console.log("Added together they need to make " + gameBoardSize);
 		if (this.num_revealed + gameBoard.permaMines < gameBoardSize) {
-			return false;
+			return over;
 		}
 		for (let i = 0; i < gameBoard.width; i++){
 			for (let j = 0; j < gameBoard.height; j++){

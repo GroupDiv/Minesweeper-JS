@@ -143,11 +143,13 @@ function clickHandler(e){
 			}
 			document.getElementById("flags").innerHTML = "Flags: " + gfx.nflags;
 		}
-		if (ui.checkComplete(gameBoard)){
-			alert("You won!");
-			RestartGame();
+		if ((ui.num_revealed + gameBoard.permaMines) == (gameBoard.height * gameBoard.width)){
+			console.log("Checking if complete...");
+			if (ui.checkComplete(gameBoard)){
+				alert("You won!");
+				RestartGame();
+			}
 		}
-
 	}
 }
 
