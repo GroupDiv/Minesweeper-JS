@@ -65,16 +65,22 @@ cheatCanvas.style.display = "none";
 // Call to a function in cheat.js that will generate the cheating board, which will be shown/hidden upon toggle
 cheatGen(gameBoard, cheatx);
 
+let div1 = document.getElementById("div1");
+let div2 = document.getElementById("div2");
+div1.after(div2);
+
 // Definition for cheat button that calls functions to enable/disable cheat mdoe
 document.getElementById("cheatButton").addEventListener("click", function(){
 	if (cheatToggle) {
 		cheatToggle = false;
+		document.getElementById("cheatButton").value = "Cheat Mode: OFF";
 		console.log("Cheat Mode disabled");
 		cheatCanvas.style.display = "none";
 		gfx.canvas.style.display = "initial";
 	}
 	else {
 		cheatToggle = true;
+		document.getElementById("cheatButton").value = "Cheat Mode: ON";
 		console.log("Cheat Mode enabled");
 		cheatCanvas.style.display = "initial";
 		gfx.canvas.style.display = "none";
