@@ -3,17 +3,16 @@
     that create the canvas upon which the cheat information is displayed
 */
 
+/**
+ * Fills a graphics context which displays solution to the board.It is meant to have its display toggled on and off with the "Cheat Mode"
+   button.
+ * @pre A gameboard object and a correctly sized cheatContext graphical context have been generated
+ * @param {*} board = the gameBoard passed from main
+ * @param {*} cheatContext = the graphical context belonging to the canvas designated for cheat
+ * @post cheatContext has been stylized and correctly populated with mine counts
+ * @return None
+ */
 function cheatGen(board, cheatContext) {
-    /*
-        Fills a graphics context which displays solution to the board.  It is meant to have its display toggled on and off
-        with the "Cheat Mode" button.
-
-        @pre A gameboard object and a correctly sized cheatContext graphical context have been generated
-        @param board = the gameBoard passed from main
-        @param cheatContext = the graphical context belonging to the canvas designated for cheat
-        @post cheatContext has been stylized and correctly populated with mine counts
-        @return None
-    */
     let components = [];  // an empty, eventually 2d, array to add visual components too
     cheatContext.strokeStyle = 'rgb(153, 204, 255)';
     cheatContext.shadowColor = 'rgba(0,0,0,1)';
@@ -28,17 +27,17 @@ function cheatGen(board, cheatContext) {
     }
 }
 
-function componentGen(x,y,cheatContext, mineCount){
-    /*
-        Generates the graphical component (rectangle) corresponding to the passed coordinates
+/**
+    Generates the graphical component (rectangle) corresponding to the passed coordinates
 
-        @pre cheatContext exists but does not yet have a component at requested coordinates
-        @param x, y = coordinates (in pixels) of requested generation
-        @param cheatContext = the graphical context belonging to the canvas designated for cheat
-        @param mineCount = the number of adjacent mines to the tile being generated
-        @post a recangle has been added to cheatContext at the requested location
-        @return None
-    */
+    @pre cheatContext exists but does not yet have a component at requested coordinates
+    @param xy = coordinates (in pixels) of requested generation
+    @param cheatContext = the graphical context belonging to the canvas designated for cheat
+    @param mineCount = the number of adjacent mines to the tile being generated
+    @post a recangle has been added to cheatContext at the requested location
+    @return None
+*/
+function componentGen(x,y,cheatContext, mineCount){
     let width = 50;
     let height = 50;
     cheatContext.font = "15px Georgia";
@@ -51,16 +50,14 @@ function componentGen(x,y,cheatContext, mineCount){
     }
 }
 
+/**
+ * Fixes mineCount to prepare it the value to be printed in componentGen().  (All this does is keep cheat mode from being filled with a bunch of zeroes)
+ * @pre none
+ * @param mineCount = number of adjacent mines to a tile
+ * @post mineCount is set to "" if a 0 was passed through
+ * @return mineCout = an integer 1-8 (untouched from passed parameter) or the empty string ""
+*/
 function countCorrect(mineCount){
-    /*
-        Fixes mineCount to prepare it the value to be printed in componentGen().  (All this does is keep cheat
-            mode from being filled with a bunch of zeroes)
-
-        @pre none
-        @param mineCount = number of adjacent mines to a tile
-        @post mineCount is set to "" if a 0 was passed through
-        @return mineCout = an integer 1-8 (untouched from passed parameter) or the empty string ""
-    */
     if (mineCount == 0) {
         return ("");
     }

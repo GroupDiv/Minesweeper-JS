@@ -4,7 +4,9 @@
  */
 class UI{
 	/**  
- 	* The constructor for the UI class takes no parameters, but initializes arrays that are needed for the run.
+	 * The constructor for the UI class takes no parameters, but initializes arrays that are needed for the run.
+	 * @constructor
+	 * @param {*} gameboard
 	*/
 	constructor(gameBoard){
 
