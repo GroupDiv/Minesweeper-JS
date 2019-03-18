@@ -4,18 +4,24 @@
 
 function main()
 {
+	let h = 0;
+	let w = 0;
+	let nm = 0;
 
 	let gameBoard;
 	let gameMode = prompt("Would you like to play Devil Mode? The board will be a size of 6x6 with 6 mines, and you only have 66 seconds to find them all! Find the special tile to add an additional 6 seconds to the clock! (yes/no)");
 	switch(gameMode) {
 		case "yes":
-			gameBoard = new Board("", 6, 6, 6);
+		h = 6;
+		w = 6;
+		nm = 6;
+			gameBoard = new Board("", h, w, nm);
 			countdownTimer(66, "timer");
 			break;
-		case "no":
-			let h = prompt("Enter height");
-			let w = prompt("Enter width");
-			let nm = prompt("Enter number of mines");
+		default:
+			h = prompt("Enter height");
+			w = prompt("Enter width");
+			nm = prompt("Enter number of mines");
 			if(h>1 && w>1){
 			if(nm<h*w && nm>0){
 			/**  
@@ -36,8 +42,6 @@ function main()
 				RestartGame();
 			}
 	
-			break;
-		default:
 			break;
 	}
 
