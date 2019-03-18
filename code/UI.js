@@ -4,7 +4,9 @@
  */
 class UI{
 	/**  
- 	* The constructor for the UI class takes no parameters, but initializes arrays that are needed for the run.
+	 * The constructor for the UI class takes no parameters, but initializes arrays that are needed for the run.
+	 * @constructor
+	 * @param {*} gameboard
 	*/
 	constructor(gameBoard){
 
@@ -80,10 +82,7 @@ class UI{
 				}
 			}
 		}
-		if (n_mine_flag == gameBoard.nmines)
-		{
 			over = true;
 			return over;
-		}
 	}
 }
