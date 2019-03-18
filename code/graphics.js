@@ -27,8 +27,9 @@ class Graphics{
 		this.height = 50;
 		this.x = x;
 		this.y =y;
+		this.context.font = "15px Georgia";
 		this.context.strokeRect(this.x, this.y, this.width, this.height);
-		this.context.fillText(t,x+25,y+25);
+		this.context.fillText(t,x+20,y+30);
 	}
 
 	/**  
