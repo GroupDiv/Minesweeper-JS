@@ -1,5 +1,9 @@
 //minesweeper.js
+let wilhelm_scream;
+wilhelm_scream = new sound("wilhelm.mp3");
 
+let magic_wand;
+magic_wand = new sound("magicWand.mp3");
 
 
 function main()
@@ -95,6 +99,7 @@ document.getElementById("cheatButton").addEventListener("click", function(){
 		gfx.canvas.style.display = "initial";
 	}
 	else {
+		magic_wand.play();
 		cheatToggle = true;
 		document.getElementById("cheatButton").value = "Cheat Mode: ON";
 		console.log("Cheat Mode enabled");
@@ -139,7 +144,7 @@ function clickHandler(e){
 				ui.clickCheck(x,y, gameBoard, gfx);
 			}
 			if(ui.n_array[x][y]==9){
-				//wilhelm_scream.play();
+				wilhelm_scream.play();
 				alert("Game Over!");
 				RestartGame();
 			}
