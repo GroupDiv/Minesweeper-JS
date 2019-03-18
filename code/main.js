@@ -132,6 +132,12 @@ function clickHandler(e){
 			ui.revealed[x][y] = true;
 			ui.num_revealed ++;
 
+		//check if xy coordinates are equal to powerX powerY of board
+		if (Board.powerX == x && Board.powerY == y)
+		{
+			countdownTimer(66, timer);
+		}
+
 			gfx.context.strokeStyle = 'rgba(0,0,255,0.6)';
 			gfx.context.shadowColor = 'rgba(0,0,255,0.6)';
 
