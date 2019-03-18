@@ -5,7 +5,10 @@ wilhelm_scream = new sound("wilhelm.mp3");
 let magic_wand;
 magic_wand = new sound("magicWand.mp3");
 
-
+/*
+* @pre none
+* @post prompts user for mode (devil or normal), board dimensions, and number of mines
+*/
 function main()
 {
 	let h = 0;
@@ -52,9 +55,6 @@ function main()
 	console.table(gameBoard.nmines_array);
 	console.log(gameBoard.nmines);
 
-	//var wilhelm_scream;
-	//wilhelm_scream = new sound("wilhelm.mp3");
-
 
 	/**  
 		* Making an object of UI class named ui.
@@ -89,7 +89,10 @@ let div1 = document.getElementById("div1");
 let div2 = document.getElementById("div2");
 div1.after(div2);
 
-// Definition for cheat button that calls functions to enable/disable cheat mdoe
+/*
+* @pre none
+* @post Definition for cheat button that calls functions to enable/disable cheat mode
+*/
 document.getElementById("cheatButton").addEventListener("click", function(){
 	if (cheatToggle) {
 		cheatToggle = false;
@@ -109,9 +112,10 @@ document.getElementById("cheatButton").addEventListener("click", function(){
 })
 
 
-/**  
-	 * This is the only global function, this is a clickHandler, this handles the clicks on the canvas and detects which component was clicked and updates it.
-	 @param {Event} e - This is the click event given by the addEventListener function.
+/* 
+* @pre user has clicked the screen
+* @post This is the only global function, this is a clickHandler, this handles the clicks on the canvas and detects which component was clicked and updates it.
+* @param {Event} e - This is the click event given by the addEventListener function.
 */
 function clickHandler(e){
 		/**  
@@ -182,6 +186,12 @@ function clickHandler(e){
 	
 }
 
+/*
+* @pre user has activated "devil mode"
+* @post counts down timer from 66 to 0
+* @param seconds - time in seconds remaining on timer
+* @param elem - attribute called timer from html
+*/
 function countdownTimer(seconds, elem) {
 	let element = document.getElementById(elem);
 	element.innerHTML = "Time Remaining: " + seconds + " seconds";
@@ -195,6 +205,10 @@ function countdownTimer(seconds, elem) {
 	let clock = setTimeout('countdownTimer('+seconds+', "' +elem+ '")', 1000);
 }
 
+/*
+* @pre user has clicked restart button from html file
+* @post restarts the game/clears game history
+*/
 function RestartGame(){
 	history.go(0);
 }
