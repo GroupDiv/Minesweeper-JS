@@ -124,18 +124,20 @@ function main()
 		}
 	}
 
-	function countdownTimer(seconds, elem) {
-		let element = document.getElementById(elem);
-		element.innerHTML = "Time Remaining: " + seconds + " seconds";
+	
+}
 
-		if (seconds < 1) {
-			clearTimeout(clock);
-			element.innerHTML = "<h2>GAME OVER</h2>";
-		}
+function countdownTimer(seconds, elem) {
+	let element = document.getElementById(elem);
+	element.innerHTML = "Time Remaining: " + seconds + " seconds";
 
-		seconds--;
-		let clock = setTimeout('countdownTimer('+seconds+', "' +elem+ '")', 1000);
+	if (seconds < 1) {
+		clearTimeout(clock);
+		element.innerHTML = "<h2>GAME OVER</h2>";
 	}
+
+	seconds--;
+	let clock = setTimeout('countdownTimer('+seconds+', "' +elem+ '")', 1000);
 }
 
 function RestartGame(){
