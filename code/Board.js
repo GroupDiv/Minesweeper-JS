@@ -145,22 +145,25 @@ class Board{
 		return(nmines);
 	}
 	}
-}
 
-
-powerUpGen(powerX, powerY)
-{	
-	//boolean value to determine if an empty tile is found (not a mine) to be used for powerup tile
-	let found = false;
-	while (found == false) 
+	powerUpGen(powerX, powerY) 
 	{
-		//finds random tile with math function for x and y to be checked
-		let powerX = Math.floor(Math.random() * this.width);
-		let powerY = Math.floor(Math.random() * this.height);
-		// 9 is  mine, if the random (x,y) coordinate is a mine, the loop will continue until an empty tile is found
-		if (!(this.board[powerX][powerY] != 9)
+		//boolean value to determine if an empty tile is found (not a mine) to be used for powerup tile
+		let found = false;
+		while (found == false) 
 		{
-			found = true;
+			//finds random tile with math function for x and y to be checked
+			powerX = Math.floor(Math.random() * this.width);
+			console.log(powerX);
+			powerY = Math.floor(Math.random() * this.height);
+			console.log(powerY);
+			// 9 is  mine, if the random (x,y) coordinate is a mine, the loop will continue until an empty tile is found
+			if (this.board[powerX][powerY] != 9) 
+			{
+				found = true;
+			}
 		}
-	}	
+	}
 }
+
+
