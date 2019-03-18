@@ -186,9 +186,10 @@ function countdownTimer(seconds, elem) {
 	let element = document.getElementById(elem);
 	element.innerHTML = "Time Remaining: " + seconds + " seconds";
 
-	if (seconds < 1) {
+	if (seconds == -1) {
+		alert("Out of time! GAME OVER");
+		RestartGame();
 		clearTimeout(clock);
-		element.innerHTML = "<h2>GAME OVER</h2>";
 	}
 
 	seconds--;
@@ -198,3 +199,4 @@ function countdownTimer(seconds, elem) {
 function RestartGame(){
 	history.go(0);
 }
+
