@@ -80,10 +80,7 @@ class UI{
 				}
 			}
 		}
-		if (n_mine_flag == gameBoard.nmines)
-		{
 			over = true;
 			return over;
-		}
 	}
 }
