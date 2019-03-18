@@ -38,3 +38,11 @@ The whole code is written from scratch only a few function calls are from the we
 
            https://www.w3schools.com/
 
+     3. sound-bible:- For magic wand sound effect in cheat mode.
+
+           http://soundbible.com/tags-magic-wand.html
+
+     4. big sound bank:- For wilhelm scream sound effect after losing the game.
+
+           https://bigsoundbank.com/detail-0477-wilhelm-scream.html
+
