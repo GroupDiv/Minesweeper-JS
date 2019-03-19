@@ -161,6 +161,7 @@ class Board{
 			if (this.board[powerX][powerY] != 9) 
 			{
 				found = true;
+				this.board[powerX][powerY] = 10;
 			}
 		}
 	}
