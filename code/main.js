@@ -133,7 +133,7 @@ function clickHandler(e){
 			ui.num_revealed ++;
 
 		//check if xy coordinates are equal to powerX powerY of board
-		if (Board.powerX == x && Board.powerY == y)
+		if ((Board.powerX == x && Board.powerY == y) && gameMode == "yes")
 		{
 			countdownTimer(66, timer);
 		}
