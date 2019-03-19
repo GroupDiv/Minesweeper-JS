@@ -160,6 +160,7 @@ function clickHandler(e){
 			tc = "F";
 			if(ui.n_array[x][y]<20)
 			{
+
 				ui.n_array[x][y] += 20;
 				gfx.context.strokeStyle = 'rgba(255,0,0,0.6)';
 				gfx.context.shadowColor = 'rgba(255,0,0,0.6)';

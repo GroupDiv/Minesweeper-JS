@@ -15,7 +15,10 @@ class Graphics{
 		this.context = this.canvas.getContext("2d");
 		document.body.insertBefore(this.canvas, document.body.childNodes[0]);
 		this.nflags = gameBoard.nmines;
-		this.draw(gameBoard);		
+		this.draw(gameBoard);	
+		
+		this.flagImg = new Image();
+		this.flagImg.src="flag.png";
 		}
 	/**  
 	 * Makes the specific components in the Canvas, i.e. the tiles for the game.
@@ -23,13 +26,20 @@ class Graphics{
 	 * @param {Number} y - The y coordinate of the component to be made.
 	*/
 	component(x,y,t=""){
+
+
 		this.width = 50;
 		this.height = 50;
 		this.x = x;
 		this.y =y;
 		this.context.font = "15px Georgia";
 		this.context.strokeRect(this.x, this.y, this.width, this.height);
+		if (t == "F"){
+			this.context.drawImage(this.flagImg,x,y,50,50);
+			}
+		else{
 		this.context.fillText(t,x+20,y+30);
+		}
 	}
 
 	/**  
