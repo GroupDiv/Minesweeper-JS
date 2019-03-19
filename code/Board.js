@@ -42,9 +42,9 @@ class Board{
 					this.initboard();
 					this.initMines(this.nmines);
 					this.initNmines();
-					let powerX = 0;
-					let powerY = 0;
-					this.powerUpGen(powerX, powerY);
+					this.powerX = 0;
+					this.powerY = 0;
+					this.powerUpGen(this.powerX, this.powerY);
 		// 			break;
 		// 	default:
 		// 			this.height(5);
@@ -153,15 +153,15 @@ class Board{
 		while (found == false) 
 		{
 			//finds random tile with math function for x and y to be checked
-			powerX = Math.floor(Math.random() * this.width);
-			console.log(powerX);
-			powerY = Math.floor(Math.random() * this.height);
-			console.log(powerY);
+			this.powerX = Math.floor(Math.random() * this.width);
+			console.log(this.powerX);
+			this.powerY = Math.floor(Math.random() * this.height);
+			console.log(this.powerY);
 			// 9 is  mine, if the random (x,y) coordinate is a mine, the loop will continue until an empty tile is found
-			if (this.board[powerX][powerY] != 9) 
+			if (this.board[this.powerX][this.powerY] != 9) 
 			{
 				found = true;
-				this.board[powerX][powerY] = 10;
+
 			}
 		}
 	}
