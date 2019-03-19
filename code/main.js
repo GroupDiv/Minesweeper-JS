@@ -5,6 +5,9 @@ wilhelm_scream = new sound("wilhelm.mp3");
 let magic_wand;
 magic_wand = new sound("magicWand.mp3");
 
+let evil_cackle;
+evil_cackle = new sound("evilCackle.mp3");
+
 /*
 * @pre none
 * @post prompts user for mode (devil or normal), board dimensions, and number of mines
@@ -195,6 +198,11 @@ function clickHandler(e){
 function countdownTimer(seconds, elem) {
 	let element = document.getElementById(elem);
 	element.innerHTML = "Time Remaining: " + seconds + " seconds";
+
+	if (seconds == 0) {
+		evil_cackle.play();
+		console.log("LAUGH HERE");
+	}
 
 	if (seconds == -1) {
 		alert("Out of time! GAME OVER");
