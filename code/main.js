@@ -8,6 +8,7 @@ magic_wand = new sound("magicWand.mp3");
 
 function main()
 {
+
 	let h = 0;
 	let w = 0;
 	let nm = 0;
@@ -51,6 +52,8 @@ function main()
 
 	console.table(gameBoard.nmines_array);
 	console.log(gameBoard.nmines);
+	console.log(gameBoard.powerX);
+	console.log(gameBoard.powerY);
 
 	//var wilhelm_scream;
 	//wilhelm_scream = new sound("wilhelm.mp3");
@@ -132,10 +135,11 @@ function clickHandler(e){
 			ui.revealed[x][y] = true;
 			ui.num_revealed ++;
 
+			
 		//check if xy coordinates are equal to powerX powerY of board
-		if ((Board.powerX == x && Board.powerY == y) && gameMode == "yes")
+		if (gameBoard.powerX == x && gameBoard.powerY == y)
 		{
-			countdownTimer(66, timer);
+			countdownTimer(66, "timer");
 		}
 
 			gfx.context.strokeStyle = 'rgba(0,0,255,0.6)';
