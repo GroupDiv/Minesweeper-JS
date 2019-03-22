@@ -24,7 +24,9 @@ A left click reveals the tiles if they are not a mine.
 A right click flags a tile if it is not revealed or flagged, or removes the flag if it is flagged.
 
 
-Authors: Xingjian Ding, Saharsh Gupta, Hanwen Jia.
+Authors: Xingjian Ding, Saharsh Gupta, Hanwen Jia. (Project 1)
+Authors: Ryan Pierce, Megana Chinalachaialagari, Taylor Bauer, Myra Dotzel, Marcus Leong (Project 2)
+
 
 Resources used:
 
@@ -46,3 +48,6 @@ The whole code is written from scratch only a few function calls are from the we
 
            https://bigsoundbank.com/detail-0477-wilhelm-scream.html
 
+TO ACCESS DOCUMENTATION FOR THE PROJECT 2 FILES:
+
+Documentation -> doc -> symbols -> src, then select the desired .html file
